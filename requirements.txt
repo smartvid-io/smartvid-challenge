@@ -4,5 +4,5 @@ notebook
 sklearn
 pandas
 matplotlib
-Pillow-SIMD
+Pillow
 tqdm
