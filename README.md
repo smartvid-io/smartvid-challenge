@@ -8,46 +8,51 @@ git clone git@github.com:smartvid-io/smartvid-challenge.git
 
 Create a virtual environment on your machine and install the requirements in the `requirements.txt` file.
 
-## Detailed instructions for setting up a virtual environment
 
-### virtualenv
-virtualenv is a tool to create isolated Python environments. virtualenv creates a folder which contains all the necessary executables to use the packages that a Python project would need.
+## Detailed instructions for setting up a virtual environment (Mac OSX Only)
 
-It can be used standalone, in place of Pipenv.
+Start by adding pyenv to your system. This will allow us to select different python versions and not conflict with the system.
 
-Install virtualenv via pip:
+`brew install pyenv`
 
+## Setup your ~/.bash_profile
 ```
-pip install virtualenv
-```
-
-### virtualenvwrapper
-virtualenvwrapper provides a set of commands which makes working with virtual environments much more pleasant. It also places all your virtual environments in one place.
-
-To install (make sure virtualenv is already installed):
-
-```
-pip install virtualenvwrapper
-```
-Put the follwing in your `~/.bash_profile` file and restart your terminal:
-```
-# Set up virtualenv
 export WORKON_HOME=~/.virtualenvs
 mkdir -p $WORKON_HOME
-source /usr/local/bin/virtualenvwrapper.sh
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
+pyenv virtualenvwrapper
 ```
 
-For Windows, you can use the `virtualenvwrapper-win` package.
+## One-time environment creation
+
+`pyenv install 3.7.0`
+
+The following script has been tested for Mac OS with python 3.7 installed. It sets up a virtual environment for the challenge and installs the requirements listed in `requirements.txt`.
+
+`source setup_mac.sh`
+
+
+
+## For Windows, you can use the `virtualenvwrapper-win` package.
 
 To install (make sure virtualenv is already installed):
-
 ```
 pip install virtualenvwrapper-win
 ```
 In Windows, the default path for WORKON_HOME is `%USERPROFILE%\Envs`
 
-### Setup script (Tested on Mac OS)
-The following script has been tested for Mac OS with python 3.7 installed. It sets up a virtual environment for the challenge and installs the requirements listed in `requirements.txt`.
+
+## For Windows, you can also use `pyenv-win`
+```
+pip install pyenv-win --target %USERPROFILE%\.pyenv
+```
+
+
+## Setup script (Tested on Mac OS)
+
 ```
 source setup_mac.sh
 ```
