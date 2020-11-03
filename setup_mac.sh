@@ -1,10 +1,14 @@
 #!/bin/sh
 echo "source setup_mac.sh"
 deactivate
-rmvirtualenv smartvid-challenge
-mkvirtualenv smartvid-challenge --python=`which python3`
+rmvirtualenv smartvid-data-challenge
+pyenv global 3.7.0
+mkvirtualenv smartvid-data-challenge
 setvirtualenvproject
-./install_mac.sh
-echo `pwd` >>$VIRTUAL_ENV/lib/python3.7/site-packages/smartvid-challenge.pth
-ipython kernel install --user --name=smartvid-challenge
-workon smartvid-challenge
+pip install -r requirements.txt
+nodeenv -p
+npm install --no-optional
+ipython kernel install --user --name=smartvid-data-challenge
+jupyter nbextension enable --py widgetsnbextension
+jupyter labextension install @jupyter-widgets/jupyterlab-manager
+workon smartvid-data-challenge

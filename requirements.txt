@@ -1,8 +1,11 @@
-tensorflow==2.1.0
-jupyter
+torch
+torchvision
+jupyterlab
+ipywidgets
 notebook
 sklearn
 pandas
 matplotlib
 Pillow
 tqdm
+nodeenv
