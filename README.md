@@ -13,8 +13,10 @@ Create a virtual environment on your machine and install the requirements in the
 
 Start by adding pyenv to your system. This will allow us to select different python versions and not conflict with the system.
 
-`brew install pyenv`
-
+```
+brew install pyenv
+brew install pyenv-virtualenvwrapper
+```
 ## Setup your ~/.bash_profile
 ```
 export WORKON_HOME=~/.virtualenvs
